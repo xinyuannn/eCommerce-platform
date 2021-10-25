@@ -1,0 +1,32 @@
+{
+  "name": "ecommerceplatform",
+  "version": "1.0.0",
+  "description": "MERN shopping cart app",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xinyuannn/eCommerce-platform.git"
+  },
+  "author": "Xinyuan & Chenyan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xinyuannn/eCommerce-platform/issues"
+  },
+  "homepage": "https://github.com/xinyuannn/eCommerce-platform#readme",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "nodemon": "^2.0.14"
+  }
+}
