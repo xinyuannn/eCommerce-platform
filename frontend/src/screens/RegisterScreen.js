@@ -44,25 +44,25 @@ const RegisterScreen = ({ location, history }) => {
         {error && <Message variant='danger'>{error}</Message>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
-        <Form.Group controlID='name'>
+        <Form.Group className="mb-3" controlID='name'>
                 <Form.Label>Name</Form.Label>
                 <Form.Control type='name' placeholder='Enter name' value={name} onChange={(e) => setName(e.target.value)}>
                 </Form.Control>
             </Form.Group>
 
-            <Form.Group controlID='email'>
+            <Form.Group className="mb-3" controlID='email'>
                 <Form.Label>Email Address</Form.Label>
                 <Form.Control type='email' placeholder='Enter email' value={email} onChange={(e) => setEmail(e.target.value)}>
                 </Form.Control>
             </Form.Group>
 
-            <Form.Group controlID='password'>
+            <Form.Group className="mb-3" controlID='password'>
                 <Form.Label>Passwrod</Form.Label>
                 <Form.Control type='password' placeholder='Enter password' value={password} onChange={(e) => setPassword(e.target.value)}>
                 </Form.Control>
             </Form.Group>
 
-            <Form.Group controlID='confirmPassword'>
+            <Form.Group className="mb-3" controlID='confirmPassword'>
                 <Form.Label>Confirm Password</Form.Label>
                 <Form.Control type='password' placeholder='Confirm Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}>
                 </Form.Control>
@@ -72,7 +72,7 @@ const RegisterScreen = ({ location, history }) => {
 
             <Row className='py-3'>
                 <Col>
-                    Havew an Account? <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
+                    Already have an account? <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
                         Login
                     </Link>
                 </Col>
