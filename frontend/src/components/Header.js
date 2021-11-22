@@ -18,13 +18,13 @@ const Header = () => {
         <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
         <Container>
             <LinkContainer to='/'>
-                <Navbar.Brand>eShop</Navbar.Brand>
+                <Navbar.Brand><i className='fas fa-store'>Store</i></Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
                 <LinkContainer to='/cart'>
-                    <Nav.Link>Cart<i className='fas fa-shopping-cart'></i></Nav.Link>
+                    <Nav.Link><i className='fas fa-shopping-cart'>Cart</i></Nav.Link>
                 </LinkContainer>
                 {userInfo ? (
                     <NavDropdown title={userInfo.name} id='username'>
@@ -36,7 +36,7 @@ const Header = () => {
                         </NavDropdown.Item>
                     </NavDropdown>
                 ) : <LinkContainer to='/login'>
-                <Nav.Link>Sign In<i className='fas fa-user'></i></Nav.Link>
+                <Nav.Link><i className='fas fa-user'></i>Sign In</Nav.Link>
             </LinkContainer>}
             </Nav>
             </Navbar.Collapse>
