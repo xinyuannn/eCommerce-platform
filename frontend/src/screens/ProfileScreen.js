@@ -70,7 +70,7 @@ const ProfileScreen = ({ location, history }) => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlID='password'>
-                <Form.Label>Passwrod</Form.Label>
+                <Form.Label>Password</Form.Label>
                 <Form.Control type='password' placeholder='Enter password' value={password} onChange={(e) => setPassword(e.target.value)}>
                 </Form.Control>
             </Form.Group>
