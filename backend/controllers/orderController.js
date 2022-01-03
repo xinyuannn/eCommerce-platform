@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler'
 import Order from '../models/orderModel.js'
+import Product from '../models/productModel.js'
 
 const addOrderItems = asyncHandler(async (req, res) => {
     const { orderItems, shippingAddress, paymentMethod, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body
@@ -7,15 +8,26 @@ const addOrderItems = asyncHandler(async (req, res) => {
     if (orderItems && orderItems.length === 0) {
         res.status(400)
         throw new Error('No order items')
-        return
     } else {
+        orderItems.map(async (item) => {
+            const product = await Product.findById(item.product)
+            if (product.countInStock < item.qty) {
+                res.status(400)
+                throw new Error('No enough items')
+            }
+        })
+        orderItems.map(async (item) => {
+            const product = await Product.findById(item.product)
+            product.countInStock = product.countInStock - item.qty
+            await product.save()
+        })
         const order = new Order({
             orderItems, 
             user: req.user._id,
-            shippingAddress, 
+            shippingAddress,
             paymentMethod, 
-            itemsPrice, 
-            taxPrice, 
+            itemsPrice,
+            taxPrice,
             shippingPrice, 
             totalPrice
         })
